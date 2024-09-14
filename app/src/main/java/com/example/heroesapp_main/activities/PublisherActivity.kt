@@ -1,5 +1,6 @@
 package com.example.heroesapp_main.activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,7 +24,10 @@ class PublisherActivity : AppCompatActivity() {
         )
 
         val adapter = PublisherAdapter(publishers) { publisher ->
-            // Se navega a la sig actividad con el publisher seleccionado
+            // Aquí agregamos la navegación a HeroesActivity
+            val intent = Intent(this, HeroesActivity::class.java)
+            intent.putExtra("publisherId", publisher.id) // Pasamos el ID del publisher a la siguiente actividad
+            startActivity(intent)
         }
         publisherRecyclerView.adapter = adapter
     }
