@@ -1,5 +1,6 @@
 package com.example.heroesapp_main.activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,6 +23,11 @@ class HeroesActivity : AppCompatActivity() {
         val heroes = getHeroesForPublisher(publisherId)
         val adapter = HeroAdapter(heroes) { hero ->
             // Navegar a la pantalla de detalles del héroe
+            val intent = Intent(this, HeroDetailActivity::class.java)
+            intent.putExtra("heroName", hero.name)
+            intent.putExtra("heroDescription", hero.description)
+            intent.putExtra("heroImage", hero.image)
+            startActivity(intent)
         }
         heroesRecyclerView.adapter = adapter
     }
