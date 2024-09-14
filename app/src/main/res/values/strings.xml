@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">HeroesApp-main</string>
+    <string name="login_image_desc">Descripción de la imagen de inicio de sesión</string>
+    <string name="login">Iniciar sesión</string>
 </resources>
