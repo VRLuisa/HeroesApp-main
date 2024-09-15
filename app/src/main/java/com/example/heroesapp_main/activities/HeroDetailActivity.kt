@@ -1,9 +1,9 @@
 package com.example.heroesapp_main.activities
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.example.heroesapp_main.R
 import com.squareup.picasso.Picasso
 
@@ -13,20 +13,18 @@ class HeroDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hero_detail)
 
+        val heroName = intent.getStringExtra("heroName") ?: "Sin nombre"
+        val heroDescription = intent.getStringExtra("heroDescription") ?: "Sin descripción"
+        val heroImage = intent.getStringExtra("heroImage") ?: ""
+
+        val heroImageView = findViewById<ImageView>(R.id.hero_image_view)
         val heroNameTextView = findViewById<TextView>(R.id.hero_name_text_view)
         val heroDescriptionTextView = findViewById<TextView>(R.id.hero_description_text_view)
-        val heroImageView = findViewById<ImageView>(R.id.hero_image_view)
 
-        // Recibimos los datos del héroe desde la intención
-        val heroName = intent.getStringExtra("heroName")
-        val heroDescription = intent.getStringExtra("heroDescription")
-        val heroImage = intent.getStringExtra("heroImage")
-
-        // Llenamos los TextViews con los datos del héroe
         heroNameTextView.text = heroName
         heroDescriptionTextView.text = heroDescription
 
-        // Cargamos la imagen del héroe con Picasso
+        // Cargar la imagen usando Picasso (asegúrate de que tienes el URL correcto de la imagen)
         Picasso.get().load(heroImage).into(heroImageView)
     }
 }

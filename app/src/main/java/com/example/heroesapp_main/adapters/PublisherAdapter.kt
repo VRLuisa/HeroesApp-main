@@ -1,5 +1,6 @@
 package com.example.heroesapp_main.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,8 +24,10 @@ class PublisherAdapter(private val publisherList: List<Publisher>, private val o
         holder.publisherNameTextView.text = publisher.name
         Picasso.get().load(publisher.image).into(holder.publisherImageView)
 
+        // Cambia 'publishers' por 'publisherList'
         holder.itemView.setOnClickListener {
-            onPublisherClick(publisher)
+            Log.d("PublisherAdapter", "Lista de publishers cargada: " + publisherList.size)
+            onPublisherClick(publisher)  // Llamar al callback para manejar el click
         }
     }
 
@@ -35,4 +38,3 @@ class PublisherAdapter(private val publisherList: List<Publisher>, private val o
         val publisherNameTextView: TextView = view.findViewById(R.id.publisher_name_text_view)
     }
 }
-

@@ -57,8 +57,8 @@ class MainActivity : AppCompatActivity() {
     private fun isValidUser(email: String, password: String): Boolean {
         // Lista de usuarios válidos
         val validUsers = listOf(
-            User("user1@example.com", "password123"),
-            User("user2@example.com", "password456")
+            User("luisavqz@gmail.com", "hola123"),
+            User("pract@gmail.com", "hola789")
         )
 
         return validUsers.any { it.email == email && it.password == password }
